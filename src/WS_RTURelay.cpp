@@ -46,10 +46,7 @@ bool WS_RTURelay::ControlSingleRelay(unsigned char deviceAddress, unsigned char 
 
     if(WriteToPort(sendData, sizeof(sendData), receivedData, &iResponse))
     {
-        if(WriteToPort(sendData, sizeof(sendData), receivedData, &iResponse))
-        {
-            bReturn = validateResponse(sendData, sizeof(sendData), receivedData, iResponse, Validator::IDENTICAL_MSG);
-        }
+         bReturn = validateResponse(sendData, sizeof(sendData), receivedData, iResponse, Validator::IDENTICAL_MSG);
     }
 
     return bReturn;

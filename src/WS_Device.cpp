@@ -140,8 +140,8 @@ bool WS_Device::WriteToPort(unsigned char *message, int messageSize, unsigned ch
     if (readResult > 2)
     {
         uint16_t iCrc = crc_modbus(response, readResult - 2);
-        int high_byte = (iCrc >> 8) & 0xff;
-        int low_byte = iCrc & 0xff;
+        char high_byte = (iCrc >> 8) & 0xff;
+        char low_byte = iCrc & 0xff;
         char result_highByte = buf[readResult - 1];
         char result_lowByte = buf[readResult - 2];
 
@@ -153,7 +153,7 @@ bool WS_Device::WriteToPort(unsigned char *message, int messageSize, unsigned ch
         {
             std::stringstream stream;
             stream << "Invalid CRC. Expected 0x" << std::hex << low_byte << " 0x" << high_byte
-                   << " Received 0x" << std::hex << (int)result_lowByte << " 0x" << (int)result_highByte;
+                   << " Received 0x" << std::hex << result_lowByte << " 0x" << result_highByte;
             m_LastError = stream.str();
         }
     }
