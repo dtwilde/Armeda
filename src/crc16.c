@@ -120,7 +120,6 @@ uint16_t update_crc_16( uint16_t crc, unsigned char c ) {
  * lookup table is calculated by the init_crc16_tab() routine, the first time
  * the CRC function is called.
  */
-
 static void init_crc16_tab( void ) {
 
 	uint16_t i;
