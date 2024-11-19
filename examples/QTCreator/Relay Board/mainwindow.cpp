@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    m_deviceAddress = 2;
+    m_deviceAddress = 1;
 
     ui->comboBox->addItem("");
 
